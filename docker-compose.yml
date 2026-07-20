@@ -1,0 +1,15 @@
+services:
+  doc-tools:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8011:8011"
+    volumes:
+      - ./storage:/app/storage
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8011/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+

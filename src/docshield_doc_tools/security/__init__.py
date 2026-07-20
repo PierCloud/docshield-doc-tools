@@ -1,0 +1,2 @@
+"""Input safety helpers."""
+
